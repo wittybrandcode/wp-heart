@@ -56,7 +56,7 @@ class Assets {
 		wp_register_style(
 			'wp-heart-admin',
 			WP_HEART_URL . 'assets/css/wp-heart-admin.css',
-			array( 'wp-heart-tokens' ),
+			array( 'wp-heart-tokens', 'dashicons' ),
 			file_exists( $css_path ) ? (string) filemtime( $css_path ) : WP_HEART_VERSION
 		);
 		wp_style_add_data( 'wp-heart-admin', 'rtl', 'replace' );
