@@ -1,0 +1,50 @@
+/* WP-HEART design tokens 1.6.0.
+ * Single source of truth for color, spacing, type and radius.
+ * Light theme matches the WordPress admin aesthetic; every status pairs
+ * color with a text label (never color-only). Logical properties only. */
+:root {
+	--wh-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	--wh-mono: Consolas, Menlo, Monaco, monospace;
+
+	--wh-surface: #fff;
+	--wh-surface-alt: #f6f7f7;
+	--wh-border: #c3c4c7;
+	--wh-border-strong: #8c8f94;
+	--wh-text: #1d2327;
+	--wh-text-muted: #50575e;
+	--wh-link: #2271b1;
+	--wh-focus: #2271b1;
+
+	--wh-core-bg: #e7f4e4;
+	--wh-plugin-bg: #e8eefb;
+	--wh-theme-bg: #f3e8fd;
+	--wh-unknown-bg: #f0f0f1;
+	--wh-orphan-bg: #fcf0e2;
+	--wh-info-bg: #eef2f7;
+	--wh-notice-bg: #e8f4f8;
+	--wh-warning-bg: #fcf3e2;
+	--wh-error-bg: #fbe9e7;
+	--wh-critical-bg: #3c0a0a;
+	--wh-critical-text: #fff;
+	--wh-inferred-bg: #fff8e1;
+	--wh-ok-border: #00a32a;
+	--wh-error-border: #d63638;
+
+	--wh-space-xs: 4px;
+	--wh-space-sm: 8px;
+	--wh-space-md: 12px;
+	--wh-space-lg: 16px;
+	--wh-space-xl: 24px;
+
+	--wh-radius-sm: 3px;
+	--wh-radius-md: 4px;
+	--wh-radius-pill: 999px;
+
+	--wh-text-sm: 12px;
+	--wh-text-md: 13px;
+	--wh-text-lg: 15px;
+	--wh-text-xl: 21px;
+
+	--wh-bar-track: #dcdcde;
+	--wh-bar-fill: #2271b1;
+}

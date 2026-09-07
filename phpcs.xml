@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<ruleset name="WP-HEART">
+  <description>WordPress Coding Standards for WP-HEART.</description>
+  <file>src</file>
+  <file>wp-heart.php</file>
+  <file>uninstall.php</file>
+  <arg name="extensions" value="php"/>
+  <rule ref="WordPress"/>
+  <rule ref="WordPress-Docs"/>
+  <config name="minimum_supported_wp_version" value="6.2"/>
+  <rule ref="WordPress.WP.I18n">
+    <properties>
+      <property name="text_domain" type="array" value="wp-heart"/>
+    </properties>
+  </rule>
+  <!-- PSR-4 autoloading requires ClassName.php; the legacy class-*.php
+       convention is incompatible with composer-style autoloading. -->
+  <rule ref="WordPress.Files.FileName.NotHyphenatedLowercase">
+    <severity>0</severity>
+  </rule>
+  <rule ref="WordPress.Files.FileName.InvalidClassFileName">
+    <severity>0</severity>
+  </rule>
+  <!-- Decision D-009: method prose descriptions are not enforced. Every
+       docblock is type-complete (machine-verified by PHPStan level 5);
+       class/file-level prose plus docs/ carry the human documentation. -->
+  <rule ref="Generic.Commenting.DocComment.MissingShort">
+    <severity>0</severity>
+  </rule>
+</ruleset>

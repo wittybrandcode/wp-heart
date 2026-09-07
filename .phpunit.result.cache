@@ -1,0 +1,1 @@
+{"version":1,"defects":{"LiveDbTest::test_benchmarks_within_budget":1,"LiveDbTest::test_live_db_suite_passes":3},"times":{"LiveDbTest::test_live_db_suite_passes":2.518,"LiveDbTest::test_benchmarks_within_budget":0,"PlainPhpSuiteTest::test_plain_php_suite_passes":0.197}}

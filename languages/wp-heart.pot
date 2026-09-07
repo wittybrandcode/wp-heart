@@ -1,0 +1,170 @@
+# Translation Template for WP-HEART
+msgid ""
+msgstr ""
+"Project-Id-Version: WP-HEART 1.6.0\n"
+"Report-Msgid-Bugs-To: https://example.com/wp-heart\n"
+"POT-Creation-Date: 2026-09-07 00:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: wp-heart\n"
+
+msgid "WP-HEART Database Observatory"
+msgstr ""
+
+msgid "You do not have permission to view the database observatory."
+msgstr ""
+
+msgid "Loading observatory…"
+msgstr ""
+
+msgid "Database Observatory & Intelligence Platform for WordPress"
+msgstr ""
+
+msgid "Tables without a primary key"
+msgstr ""
+
+msgid "Lists tables that have no primary key. This is an observation, not a defect: many legitimate tables have none."
+msgstr ""
+
+msgid "Inspect the table purpose before taking action. Do not add keys blindly."
+msgstr ""
+
+msgid "Missing expected WordPress tables"
+msgstr ""
+
+msgid "Detects expected WordPress core tables that are absent from the database."
+msgstr ""
+
+msgid "Restore from a backup or reinstall the affected component. Investigate before creating tables manually."
+msgstr ""
+
+msgid "Mixed storage engines"
+msgstr ""
+
+msgid "Reports when tables use more than one storage engine."
+msgstr ""
+
+msgid "No action required unless transactional guarantees matter for the mixed tables."
+msgstr ""
+
+msgid "Mixed table collations"
+msgstr ""
+
+msgid "Reports when tables use differing collations."
+msgstr ""
+
+msgid "Orphan candidate tables"
+msgstr ""
+
+msgid "Lists tables whose owner may no longer be present. Informational only."
+msgstr ""
+
+msgid "Verify ownership from backups or staging before any action. WP-HEART never deletes tables."
+msgstr ""
+
+msgid "These tables may belong to plugins or themes that are no longer installed. They are reported for investigation, not removal."
+msgstr ""
+
+msgid "Large tables"
+msgstr ""
+
+msgid "Flags tables with large estimated row counts so they get bounded handling."
+msgstr ""
+
+msgid "Use paged browsing and scoped search for this table."
+msgstr ""
+
+msgid "Redundant indexes"
+msgstr ""
+
+msgid "Detects indexes covering identical column sets within one table."
+msgstr ""
+
+msgid "Review index usage with production query patterns before dropping anything."
+msgstr ""
+
+msgid "The query is empty."
+msgstr ""
+
+msgid "The query exceeds the maximum allowed length."
+msgstr ""
+
+msgid "SQL comments are not allowed in the query console."
+msgstr ""
+
+msgid "Only a single statement may be executed at a time."
+msgstr ""
+
+msgid "Only read operations (SELECT, SHOW, DESCRIBE, EXPLAIN) are allowed."
+msgstr ""
+
+msgid "Locking reads are not allowed."
+msgstr ""
+
+msgid "This query performs an operation that is not allowed in the read-only console."
+msgstr ""
+
+msgid "This query is not allowed in the read-only console."
+msgstr ""
+
+msgid "EXPLAIN is only available for SELECT queries."
+msgstr ""
+
+msgid "The database reported an error for this query."
+msgstr ""
+
+msgid "The database reported an error for this EXPLAIN."
+msgstr ""
+
+msgid "An unexpected database error occurred."
+msgstr ""
+
+msgid "Authentication is required."
+msgstr ""
+
+msgid "You do not have permission to perform this action."
+msgstr ""
+
+msgid "Unknown table."
+msgstr ""
+
+msgid "Invalid orderby column."
+msgstr ""
+
+msgid "Invalid order direction."
+msgstr ""
+
+msgid "Row not found."
+msgstr ""
+
+msgid "This table has a composite primary key; address rows with the full key via the rows endpoint filters."
+msgstr ""
+
+msgid "This table has no primary key; individual rows cannot be addressed reliably."
+msgstr ""
+
+msgid "Invalid severity filter."
+msgstr ""
+
+msgid "Invalid audit event type."
+msgstr ""
+
+msgid "Invalid value for %s."
+msgstr ""
+
+msgid "View database observatory"
+msgstr ""
+
+msgid "View table data"
+msgstr ""
+
+msgid "Run read-only queries"
+msgstr ""
+
+msgid "View audit log"
+msgstr ""
+
+msgid "Manage WP-HEART settings"
+msgstr ""

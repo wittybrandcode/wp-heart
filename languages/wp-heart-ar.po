@@ -1,0 +1,799 @@
+# Arabic translation for WP-HEART.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP-HEART 1.6.0\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Domain: wp-heart\n"
+
+msgid "Actions"
+msgstr "إجراءات"
+
+msgid "Actor"
+msgstr "الفاعل"
+
+msgid "Affected:"
+msgstr "المتأثر:"
+
+msgid "All"
+msgstr "الكل"
+
+msgid "Audit"
+msgstr "التدقيق"
+
+msgid "Audit log"
+msgstr "سجل التدقيق"
+
+msgid "Building relationship graph…"
+msgstr "جارٍ بناء مخطط العلاقات…"
+
+msgid "Cache TTL (seconds, 60–3600)"
+msgstr "مدة التخزين المؤقت (بالثواني، 60–3600)"
+
+msgid "Capabilities"
+msgstr "الصلاحيات"
+
+msgid "Charset"
+msgstr "مجموعة المحارف"
+
+msgid "Classification"
+msgstr "التصنيف"
+
+msgid "Close"
+msgstr "إغلاق"
+
+msgid "Column"
+msgstr "العمود"
+
+msgid "Columns"
+msgstr "الأعمدة"
+
+msgid "Composite primary key — rows list safely but cannot be deep-linked individually."
+msgstr "مفتاح أساسي مركّب — تُعرض الصفوف بأمان لكن لا يمكن ربطها فرادى."
+
+msgid "Constraints"
+msgstr "القيود"
+
+msgid "Data"
+msgstr "البيانات"
+
+msgid "Database"
+msgstr "قاعدة البيانات"
+
+msgid "Database map"
+msgstr "خريطة قاعدة البيانات"
+
+msgid "Database overview"
+msgstr "نظرة عامة على قاعدة البيانات"
+
+msgid "Database Observatory & Intelligence Platform for WordPress"
+msgstr "منصة مراقبة قواعد البيانات وذكائها لووردبريس"
+
+msgid "Database observatory application"
+msgstr "تطبيق مرصد قاعدة البيانات"
+
+msgid "Default"
+msgstr "الافتراضي"
+
+msgid "Default page size (5–100)"
+msgstr "حجم الصفحة الافتراضي (5–100)"
+
+msgid "Diagnostics"
+msgstr "التشخيصات"
+
+msgid "Engine"
+msgstr "المحرك"
+
+msgid "Environment"
+msgstr "البيئة"
+
+msgid "Est. size"
+msgstr "الحجم التقديري"
+
+msgid "Event"
+msgstr "الحدث"
+
+msgid "Evidence & recommendation"
+msgstr "الأدلة والتوصية"
+
+msgid "Explain"
+msgstr "عرض خطة التنفيذ"
+
+msgid "Extra"
+msgstr "إضافي"
+
+msgid "Filter"
+msgstr "تصفية"
+
+msgid "Freshness"
+msgstr "الحداثة"
+
+msgid "Global search"
+msgstr "البحث الشامل"
+
+msgid "HEART"
+msgstr "هارت"
+
+msgid "Health"
+msgstr "الصحة"
+
+msgid "Indexes"
+msgstr "الفهارس"
+
+msgid "Largest tables"
+msgstr "أكبر الجداول"
+
+msgid "Limit to tables (comma-separated, optional)"
+msgstr "قصر على جداول (مفصولة بفواصل، اختياري)"
+
+msgid "Loading observatory…"
+msgstr "جارٍ تحميل المرصد…"
+
+msgid "Loading row…"
+msgstr "جارٍ تحميل الصف…"
+
+msgid "Loading…"
+msgstr "جارٍ التحميل…"
+
+msgid "Map"
+msgstr "الخريطة"
+
+msgid "Max page size (10–200)"
+msgstr "أقصى حجم للصفحة (10–200)"
+
+msgid "Max query rows (50–2000)"
+msgstr "أقصى صفوف الاستعلام (50–2000)"
+
+msgid "Metadata refreshed."
+msgstr "تم تحديث البيانات الوصفية."
+
+msgid "Multisite"
+msgstr "متعدد المواقع"
+
+msgid "Name"
+msgstr "الاسم"
+
+msgid "Next"
+msgstr "التالي"
+
+msgid "No"
+msgstr "لا"
+
+msgid "No audit events recorded yet."
+msgstr "لا توجد أحداث تدقيق مسجلة بعد."
+
+msgid "No columns reported."
+msgstr "لا أعمدة مبلغ عنها."
+
+msgid "No indexes reported."
+msgstr "لا فهارس مبلغ عنها."
+
+msgid "No issues at this severity."
+msgstr "لا مشكلات بهذه الخطورة."
+
+msgid "No issues detected by the registered diagnostics."
+msgstr "لم تكتشف التشخيصات المسجلة أي مشكلات."
+
+msgid "No matches. Totals are estimated; narrow the scope from a table page."
+msgstr "لا نتائج. الإجماليات تقديرية؛ ضيّق النطاق من صفحة جدول."
+
+msgid "No primary key — rows list safely but cannot be addressed individually."
+msgstr "لا مفتاح أساسي — تُعرض الصفوف بأمان لكن لا يمكن مخاطبتها فرادى."
+
+msgid "No relationships detected (NONE known)."
+msgstr "لم تُكتشف علاقات (لا شيء معروف)."
+
+msgid "No rows returned."
+msgstr "لا صفوف مرتجعة."
+
+msgid "No tables match. Unknown tables are never hidden — try clearing the filter."
+msgstr "لا جداول مطابقة. الجداول المجهولة لا تُخفى أبدًا — جرّب مسح المرشح."
+
+msgid "None detected — absence of foreign keys is normal in WordPress."
+msgstr "لا شيء مكتشف — غياب المفاتيح الخارجية طبيعي في ووردبريس."
+
+msgid "Open diagnostics"
+msgstr "فتح التشخيصات"
+
+msgid "Outcome"
+msgstr "النتيجة"
+
+msgid "Overview"
+msgstr "نظرة عامة"
+
+msgid "Page"
+msgstr "صفحة"
+
+msgid "Pagination"
+msgstr "ترقيم الصفحات"
+
+msgid "Prev"
+msgstr "السابق"
+
+msgid "Preview"
+msgstr "معاينة"
+
+msgid "Query"
+msgstr "استعلام"
+
+msgid "Query console"
+msgstr "منصة الاستعلام"
+
+msgid "Read-only console. Only SELECT, SHOW, DESCRIBE and EXPLAIN run — the server rejects everything else."
+msgstr "منصة للقراءة فقط. يُسمح بـ SELECT وSHOW وDESCRIBE وEXPLAIN فقط — الخادم يرفض كل ما عداها."
+
+msgid "Recent queries (this browser only)"
+msgstr "الاستعلامات الأخيرة (هذا المتصفح فقط)"
+
+msgid "Recommendation:"
+msgstr "التوصية:"
+
+msgid "Refresh metadata"
+msgstr "تحديث البيانات الوصفية"
+
+msgid "Refreshing…"
+msgstr "جارٍ التحديث…"
+
+msgid "Relationships"
+msgstr "العلاقات"
+
+msgid "Row"
+msgstr "صف"
+
+msgid "Rows"
+msgstr "صفوف"
+
+msgid "Run"
+msgstr "تنفيذ"
+
+msgid "Running…"
+msgstr "جارٍ التنفيذ…"
+
+msgid "Save"
+msgstr "حفظ"
+
+msgid "Search"
+msgstr "بحث"
+
+msgid "Search database"
+msgstr "البحث في قاعدة البيانات"
+
+msgid "Searched"
+msgstr "تم البحث في"
+
+msgid "Searching (bounded, schema-aware)…"
+msgstr "جارٍ البحث (محدود وواعٍ بالمخطط)…"
+
+msgid "Serialized value — expand"
+msgstr "قيمة مسلسلة — عرض"
+
+msgid "Settings"
+msgstr "الإعدادات"
+
+msgid "Settings saved."
+msgstr "تم حفظ الإعدادات."
+
+msgid "Severity"
+msgstr "الخطورة"
+
+msgid "Showing"
+msgstr "عرض"
+
+msgid "Site ID"
+msgstr "معرّف الموقع"
+
+msgid "Size"
+msgstr "الحجم"
+
+msgid "Sort by"
+msgstr "ترتيب حسب"
+
+msgid "Structure"
+msgstr "البنية"
+
+msgid "Table"
+msgstr "جدول"
+
+msgid "Table prefix"
+msgstr "بادئة الجداول"
+
+msgid "Table sections"
+msgstr "أقسام الجدول"
+
+msgid "Tables"
+msgstr "الجداول"
+
+msgid "Target"
+msgstr "الهدف"
+
+msgid "Time"
+msgstr "الوقت"
+
+msgid "Tuning"
+msgstr "الضبط"
+
+msgid "Type"
+msgstr "النوع"
+
+msgid "Type at least 2 characters."
+msgstr "اكتب حرفين على الأقل."
+
+msgid "Version"
+msgstr "الإصدار"
+
+msgid "View"
+msgstr "عرض"
+
+msgid "WP-HEART Database Observatory"
+msgstr "WP-HEART — مرصد قاعدة البيانات"
+
+msgid "WP-HEART sections"
+msgstr "أقسام WP-HEART"
+
+msgid "Why this classification?"
+msgstr "لماذا هذا التصنيف؟"
+
+msgid "Yes"
+msgstr "نعم"
+
+msgid "[binary data]"
+msgstr "[بيانات ثنائية]"
+
+msgid "cached"
+msgstr "مخزّن مؤقتًا"
+
+msgid "confidence"
+msgstr "الثقة"
+
+msgid "declared constraint"
+msgstr "قيد معلن"
+
+msgid "edges truncated at the safety cap"
+msgstr "تم تقليص الحواف عند حد الأمان"
+
+msgid "estimated"
+msgstr "تقديري"
+
+msgid "evidence-based guess, never a constraint"
+msgstr "تخمين مبني على أدلة، وليس قيدًا أبدًا"
+
+msgid "exact"
+msgstr "دقيق"
+
+msgid "in"
+msgstr "في"
+
+msgid "issues found"
+msgstr "مشكلات مكتشفة"
+
+msgid "no known relationships"
+msgstr "لا علاقات معروفة"
+
+msgid "of"
+msgstr "من"
+
+msgid "plan row(s)."
+msgstr "صفوف الخطة."
+
+msgid "relationship(s)"
+msgstr "علاقات"
+
+msgid "results truncated at the safety cap"
+msgstr "تم تقليص النتائج عند حد الأمان"
+
+msgid "row(s)"
+msgstr "صفوف"
+
+msgid "table(s)"
+msgstr "جداول"
+
+msgid "tables"
+msgstr "جداول"
+
+msgid "total"
+msgstr "الإجمالي"
+
+msgid "truncated at the safety cap"
+msgstr "مُقلّص عند حد الأمان"
+
+msgid "unavailable"
+msgstr "غير متوفر"
+
+msgid "unknown"
+msgstr "مجهول"
+
+msgid "Tables without a primary key"
+msgstr "جداول بلا مفتاح أساسي"
+
+msgid "Lists tables that have no primary key. This is an observation, not a defect: many legitimate tables have none."
+msgstr "يسرد الجداول التي بلا مفتاح أساسي. هذه ملاحظة وليست عيبًا: كثير من الجداول المشروعة بلا مفتاح."
+
+msgid "Inspect the table purpose before taking action. Do not add keys blindly."
+msgstr "افحص غرض الجدول قبل أي إجراء. لا تضف مفاتيح عشوائيًا."
+
+msgid "Missing expected WordPress tables"
+msgstr "جداول ووردبريس المتوقعة المفقودة"
+
+msgid "Detects expected WordPress core tables that are absent from the database."
+msgstr "يكتشف جداول ووردبريس الأساسية المتوقعة الغائبة عن قاعدة البيانات."
+
+msgid "Restore from a backup or reinstall the affected component. Investigate before creating tables manually."
+msgstr "استعد من نسخة احتياطية أو أعد تثبيت المكوّن المتأثر. تحقق قبل إنشاء الجداول يدويًا."
+
+msgid "Mixed storage engines"
+msgstr "محركات تخزين مختلطة"
+
+msgid "Reports when tables use more than one storage engine."
+msgstr "يبلغ عند استخدام الجداول أكثر من محرك تخزين."
+
+msgid "No action required unless transactional guarantees matter for the mixed tables."
+msgstr "لا إجراء مطلوب ما لم تهم الضمانات المعاملية للجداول المختلطة."
+
+msgid "Mixed table collations"
+msgstr "ترتيبات مختلطة للجداول"
+
+msgid "Reports when tables use differing collations."
+msgstr "يبلغ عند استخدام الجداول ترتيبات مختلفة."
+
+msgid "Orphan candidate tables"
+msgstr "جداول يتيمة مرشحة"
+
+msgid "Lists tables whose owner may no longer be present. Informational only."
+msgstr "يسرد الجداول التي قد يكون مالكها غائبًا. للعلم فقط."
+
+msgid "Verify ownership from backups or staging before any action. WP-HEART never deletes tables."
+msgstr "تحقق من الملكية عبر النسخ الاحتياطية أو بيئة التجربة قبل أي إجراء. WP-HEART لا يحذف الجداول أبدًا."
+
+msgid "These tables may belong to plugins or themes that are no longer installed. They are reported for investigation, not removal."
+msgstr "قد تخص هذه الجداول إضافات أو قوالب لم تعد مثبتة. وهي للتحقيق لا للإزالة."
+
+msgid "Large tables"
+msgstr "جداول كبيرة"
+
+msgid "Flags tables with large estimated row counts so they get bounded handling."
+msgstr "يميز الجداول ذات أعداد الصفوف التقديرية الكبيرة لمعاملتها بحذر."
+
+msgid "Use paged browsing and scoped search for this table."
+msgstr "استخدم التصفح المرقّم والبحث المحدد لهذا الجدول."
+
+msgid "Redundant indexes"
+msgstr "فهارس زائدة"
+
+msgid "Detects indexes covering identical column sets within one table."
+msgstr "يكتشف الفهارس التي تغطي مجموعات الأعمدة نفسها داخل الجدول."
+
+msgid "Review index usage with production query patterns before dropping anything."
+msgstr "راجع استخدام الفهارس مع أنماط الاستعلام الإنتاجية قبل حذف أي شيء."
+
+msgid "The query is empty."
+msgstr "الاستعلام فارغ."
+
+msgid "The query exceeds the maximum allowed length."
+msgstr "تجاوز الاستعلام الطول الأقصى المسموح."
+
+msgid "SQL comments are not allowed in the query console."
+msgstr "تعليقات SQL غير مسموحة في منصة الاستعلام."
+
+msgid "Only a single statement may be executed at a time."
+msgstr "يُسمح بتنفيذ جملة واحدة فقط في كل مرة."
+
+msgid "Only read operations (SELECT, SHOW, DESCRIBE, EXPLAIN) are allowed."
+msgstr "يُسمح بعمليات القراءة فقط (SELECT وSHOW وDESCRIBE وEXPLAIN)."
+
+msgid "Locking reads are not allowed."
+msgstr "القراءات القافلة غير مسموحة."
+
+msgid "This query performs an operation that is not allowed in the read-only console."
+msgstr "ينفذ هذا الاستعلام عملية غير مسموحة في المنصة المقيدة بالقراءة."
+
+msgid "This query is not allowed in the read-only console."
+msgstr "هذا الاستعلام غير مسموح في منصة القراءة فقط."
+
+msgid "EXPLAIN is only available for SELECT queries."
+msgstr "EXPLAIN متاح لاستعلامات SELECT فقط."
+
+msgid "The database reported an error for this query."
+msgstr "أبلغت قاعدة البيانات عن خطأ لهذا الاستعلام."
+
+msgid "The database reported an error for this EXPLAIN."
+msgstr "أبلغت قاعدة البيانات عن خطأ لهذا الـEXPLAIN."
+
+msgid "An unexpected database error occurred."
+msgstr "حدث خطأ غير متوقع في قاعدة البيانات."
+
+msgid "Authentication is required."
+msgstr "يلزم تسجيل الدخول."
+
+msgid "You do not have permission to perform this action."
+msgstr "ليس لديك صلاحية تنفيذ هذا الإجراء."
+
+msgid "You do not have permission to view the database observatory."
+msgstr "ليس لديك صلاحية عرض مرصد قاعدة البيانات."
+
+msgid "Unknown table."
+msgstr "جدول مجهول."
+
+msgid "Invalid orderby column."
+msgstr "عمود الترتيب غير صالح."
+
+msgid "Invalid order direction."
+msgstr "اتجاه الترتيب غير صالح."
+
+msgid "Row not found."
+msgstr "الصف غير موجود."
+
+msgid "This table has a composite primary key; address rows with the full key via the rows endpoint filters."
+msgstr "هذا الجدول ذو مفتاح أساسي مركّب؛ خاطب الصفوف بالمفتاح الكامل عبر مرشحات نهاية الصفوف."
+
+msgid "This table has no primary key; individual rows cannot be addressed reliably."
+msgstr "هذا الجدول بلا مفتاح أساسي؛ لا يمكن مخاطبة الصفوف فرادى بموثوقية."
+
+msgid "Invalid severity filter."
+msgstr "مرشح الخطورة غير صالح."
+
+msgid "Invalid audit event type."
+msgstr "نوع حدث التدقيق غير صالح."
+
+msgid "Invalid value for %s."
+msgstr "قيمة غير صالحة لـ %s."
+
+msgid "Search rows"
+msgstr "البحث في الصفوف"
+
+msgid "No matches in this table."
+msgstr "لا نتائج مطابقة في هذا الجدول."
+
+msgid "No rows in this table."
+msgstr "لا صفوف في هذا الجدول."
+
+msgid "Export CSV"
+msgstr "تصدير CSV"
+
+msgid "Invalid engine filter."
+msgstr "مرشح المحرك غير صالح."
+
+msgid "Row search needs 2–100 characters."
+msgstr "يحتاج البحث في الصفوف من 2 إلى 100 حرف."
+
+msgid "Owner"
+msgstr "المالك"
+
+msgid "All owners"
+msgstr "كل المالكين"
+
+msgid "inactive"
+msgstr "غير مفعّلة"
+
+msgid "Filtered view"
+msgstr "عرض مُرشّح"
+
+msgid "matching tables"
+msgstr "جداول مطابقة"
+
+msgid "Clear filters"
+msgstr "مسح المرشحات"
+
+msgid "Invalid owner filter."
+msgstr "مرشح المالك غير صالح."
+
+msgid "Snapshots"
+msgstr "اللقطات"
+
+msgid "Snapshots freeze database structure (never row content) so two points in time can be compared."
+msgstr "تجمّد اللقطات بنية قاعدة البيانات (وليس محتوى الصفوف أبدًا) لمقارنة نقطتين زمنيتين."
+
+msgid "Label (optional)"
+msgstr "التسمية (اختياري)"
+
+msgid "Create snapshot"
+msgstr "إنشاء لقطة"
+
+msgid "Import snapshot file"
+msgstr "استيراد ملف لقطة"
+
+msgid "Import"
+msgstr "استيراد"
+
+msgid "Label"
+msgstr "التسمية"
+
+msgid "Created"
+msgstr "أُنشئت"
+
+msgid "Download"
+msgstr "تنزيل"
+
+msgid "Delete"
+msgstr "حذف"
+
+msgid "Compare"
+msgstr "مقارنة"
+
+msgid "No snapshots yet. Capture the first one above."
+msgstr "لا لقطات بعد. التقط الأولى أعلاه."
+
+msgid "Snapshot deleted."
+msgstr "حُذفت اللقطة."
+
+msgid "Snapshot captured."
+msgstr "التُقطت اللقطة."
+
+msgid "Snapshot imported."
+msgstr "استُوردت اللقطة."
+
+msgid "Invalid snapshot file."
+msgstr "ملف لقطة غير صالح."
+
+msgid "Select two different snapshots."
+msgstr "اختر لقطتين مختلفتين."
+
+msgid "Delete this snapshot?"
+msgstr "حذف هذه اللقطة؟"
+
+msgid "Added tables"
+msgstr "جداول مضافة"
+
+msgid "Removed tables"
+msgstr "جداول محذوفة"
+
+msgid "Changed tables"
+msgstr "جداول متغيرة"
+
+msgid "No structural changes between these snapshots."
+msgstr "لا تغييرات بنيوية بين هاتين اللقطتين."
+
+msgid "Capturing snapshot…"
+msgstr "جارٍ التقاط اللقطة…"
+
+msgid "added"
+msgstr "مضافة"
+
+msgid "removed"
+msgstr "محذوفة"
+
+msgid "changed"
+msgstr "متغيرة"
+
+msgid "Untitled snapshot"
+msgstr "لقطة بلا عنوان"
+
+msgid "Snapshot storage is unavailable."
+msgstr "تخزين اللقطات غير متوفر."
+
+msgid "Snapshot not found."
+msgstr "اللقطة غير موجودة."
+
+msgid "Invalid snapshot document."
+msgstr "مستند لقطة غير صالح."
+
+msgid "Snapshot document exceeds the import limit."
+msgstr "مستند اللقطة يتجاوز حد الاستيراد."
+
+msgid "imported"
+msgstr "مستوردة"
+
+msgid "Scheduled"
+msgstr "المجدولة"
+
+msgid "overdue events"
+msgstr "أحداث متأخرة"
+
+msgid "not detected"
+msgstr "غير مكتشف"
+
+msgid "events"
+msgstr "أحداث"
+
+msgid "Overdue or failed scheduled tasks"
+msgstr "مهام مجدولة متأخرة أو فاشلة"
+
+msgid "Detects wp-cron events past their grace period and failed Action Scheduler actions."
+msgstr "يكتشف أحداث wp-cron المتجاوزة لمهلتها وإجراءات Action Scheduler الفاشلة."
+
+msgid "Background work is overdue or failing. On low-traffic sites wp-cron only runs on visits; repeated Action Scheduler failures point at a broken callback or exhausted resources."
+msgstr "العمل الخلفي متأخر أو يفشل. في المواقع قليلة الزيارات يعمل wp-cron عند الزيارات فقط؛ وتكرار فشل Action Scheduler يشير لرد نداء معطوب أو موارد مستنفدة."
+
+msgid "Check site traffic patterns and the failing hooks error logs; consider a real cron trigger for wp-cron on quiet sites."
+msgstr "افحص أنماط زيارات الموقع وسجلات أخطاء الخطافات الفاشلة؛ وفكر في مشغل cron حقيقي لـ wp-cron في المواقع الهادئة."
+
+msgid "Reference-like columns without an index"
+msgstr "أعمدة شبيهة بالمراجع بلا فهرس"
+
+msgid "Suggests indexes for identifier-pattern columns that have none. Suggestions only — nothing is created."
+msgstr "يقترح فهارس لأعمدة نمط المعرفات التي بلا فهارس. اقتراحات فقط — لا يُنشأ شيء."
+
+msgid "Confirm with production query patterns (EXPLAIN) before creating any index. WP-HEART never creates indexes."
+msgstr "تأكد بأنماط الاستعلام الإنتاجية (EXPLAIN) قبل إنشاء أي فهرس. WP-HEART لا ينشئ فهارس أبدًا."
+
+msgid "WP-HEART read-only mode"
+msgstr "وضع WP-HEART للقراءة فقط"
+
+msgid "WP-HEART autoload footprint"
+msgstr "بصمة التحميل التلقائي في WP-HEART"
+
+msgid "WP-HEART expired transients"
+msgstr "العابرات المنتهية في WP-HEART"
+
+msgid "WP-HEART observes the database without modifying it"
+msgstr "يراقب WP-HEART قاعدة البيانات دون تعديلها"
+
+msgid "The observatory enforces a server-side read-only policy: no INSERT, UPDATE, DELETE, or schema changes exist in this release."
+msgstr "يفرض المرصد سياسة قراءة-فقط في الخادم: لا INSERT ولا UPDATE ولا DELETE ولا تغييرات مخطط في هذا الإصدار."
+
+msgid "Autoloaded options are large (%s)"
+msgstr "الخيارات المحملة تلقائيًا كبيرة (%s)"
+
+msgid "Autoloaded options are growing (%s)"
+msgstr "الخيارات المحملة تلقائيًا تنمو (%s)"
+
+msgid "Autoloaded options footprint is healthy (%s)"
+msgstr "بصمة الخيارات المحملة تلقائيًا سليمة (%s)"
+
+msgid "Exactly %1$d bytes across %2$d autoloaded options load on every request. Review the largest contributors in WP-HEART diagnostics."
+msgstr "تُحمّل %1$d بايت بالضبط عبر %2$d خيارات محملة تلقائيًا مع كل طلب. راجع أكبر المساهمين في تشخيصات WP-HEART."
+
+msgid "%d expired transient rows have accumulated"
+msgstr "تراكم %d صفوف عابرات منتهية"
+
+msgid "Transient waste is low (%d expired rows)"
+msgstr "هدر العابرات منخفض (%d صفوف منتهية)"
+
+msgid "%1$d transient values stored, %2$d expired. Expired rows clean themselves on access; a large backlog deserves review."
+msgstr "%1$d قيم عابرات مخزنة، %2$d منتهية. تنظف الصفوف المنتهية نفسها عند الوصول؛ والتراكم الكبير يستحق المراجعة."
+
+msgid "Autoload"
+msgstr "التحميل التلقائي"
+
+msgid "autoloaded options"
+msgstr "خيارات محملة تلقائيًا"
+
+msgid "Autoloaded options footprint"
+msgstr "بصمة الخيارات المحملة تلقائيًا"
+
+msgid "Measures the total size of autoloaded options, which load on every WordPress request."
+msgstr "يقيس الحجم الإجمالي للخيارات المحملة تلقائيًا، والتي تُحمّل مع كل طلب ووردبريس."
+
+msgid "Move rarely-used flags off autoload and delete stale plugin leftovers; verify with a staging measurement."
+msgstr "انقل الأعلام نادرة الاستخدام خارج التحميل التلقائي واحذف مخلفات الإضافات القديمة؛ وتحقق بقياس على بيئة تجريبية."
+
+msgid "Largest autoloaded options"
+msgstr "أكبر الخيارات المحملة تلقائيًا"
+
+msgid "Names the largest autoloaded options so developers know what makes up the footprint."
+msgstr "يسمي أكبر الخيارات المحملة تلقائيًا ليعرف المطورون مم تتكون البصمة."
+
+msgid "These options contribute most to the autoload footprint. Large does not mean wrong — inspect before acting."
+msgstr "تساهم هذه الخيارات أكثر في بصمة التحميل التلقائي. الكبير لا يعني الخاطئ — افحص قبل التصرف."
+
+msgid "Confirm each large option is still needed on every request; consider non-autoloaded storage for rarely-used data."
+msgstr "تأكد أن كل خيار كبير ما زال مطلوبًا مع كل طلب؛ وفكر في تخزين غير تلقائي للبيانات نادرة الاستخدام."
+
+msgid "Expired transient waste"
+msgstr "العابرات المنتهية المتراكمة"
+
+msgid "Counts expired transient rows that have accumulated instead of being cleaned."
+msgstr "يعد صفوف العابرات المنتهية التي تراكمت بدل تنظيفها."
+
+msgid "Expired transients normally clean themselves on access; a large backlog suggests caching patterns worth reviewing."
+msgstr "تنظف العابرات المنتهية نفسها عادة عند الوصول؛ والتراكم الكبير يشير لأنماط تخزين تستحق المراجعة."
+
+msgid "Review transient lifetimes and cleanup routines; do not hand-delete rows on production without a backup."
+msgstr "راجع أعمار العابرات وروتينات التنظيف؛ ولا تحذف الصفوف يدويًا في الإنتاج دون نسخة احتياطية."
+
+msgid "View database observatory"
+msgstr "عرض مرصد قاعدة البيانات"
+
+msgid "View table data"
+msgstr "عرض بيانات الجداول"
+
+msgid "Run read-only queries"
+msgstr "تنفيذ استعلامات القراءة فقط"
+
+msgid "View audit log"
+msgstr "عرض سجل التدقيق"
+
+msgid "Manage WP-HEART settings"
+msgstr "إدارة إعدادات WP-HEART"
