@@ -78,6 +78,24 @@ class DataController {
 				'permission_callback' => Permission::rest( Capabilities::VIEW_DATA ),
 			)
 		);
+		register_rest_route(
+			$namespace,
+			'/tables/(?P<table>[A-Za-z0-9_$]+)/rows/(?P<id>[^/]+)',
+			array(
+				'methods'             => 'PUT',
+				'callback'            => array( $this, 'update_row' ),
+				'permission_callback' => Permission::rest( Capabilities::MANAGE_DATABASE ),
+			)
+		);
+		register_rest_route(
+			$namespace,
+			'/tables/(?P<table>[A-Za-z0-9_$]+)/rows/(?P<id>[^/]+)/export',
+			array(
+				'methods'             => 'GET',
+				'callback'            => array( $this, 'export_entity' ),
+				'permission_callback' => Permission::rest( Capabilities::VIEW_DATA ),
+			)
+		);
 	}
 
 	/**
@@ -237,6 +255,35 @@ class DataController {
 	}
 
 	/**
+	 * @param \WP_REST_Request $request Request.
+	 * @return \WP_REST_Response|\WP_Error
+	 */
+	public function export_entity( $request ) {
+		try {
+			$table_name = $request->get_param( 'table' );
+			$id_param   = $request->get_param( 'id' );
+
+			$assembler = new TableAssembler( $this->c );
+			$table     = $assembler->table( $table_name );
+			if ( ! $table ) {
+				return ErrorSanitizer::rest_error( 'wp_heart_not_found', __( 'Table not found.', 'wp-heart' ), 404 );
+			}
+
+			$pks = explode( ',', $id_param );
+			$exporter = $this->c->make( 'intel.exporter' );
+			$data     = $exporter->export( $table->name(), $pks );
+
+			if ( empty( $data ) ) {
+				return ErrorSanitizer::rest_error( 'wp_heart_not_found', __( 'Entity not found or export failed.', 'wp-heart' ), 404 );
+			}
+
+			return Presenter::ok( $data );
+		} catch ( \Exception $e ) {
+			return ErrorSanitizer::rest_error( 'wp_heart_error', $e->getMessage(), 500 );
+		}
+	}
+
+	/**
 	 * @param \WPHeart\Domain\TableInfo $table Table.
 	 * @return array {mode: single|composite|none, columns: string[]}
 	 */
@@ -258,5 +305,70 @@ class DataController {
 			'mode'    => 'none',
 			'columns' => array(),
 		);
+	}
+
+	/**
+	 * @param \WP_REST_Request $request Request.
+	 * @return \WP_REST_Response|\WP_Error
+	 */
+	public function update_row( $request ) {
+		try {
+			global $wpdb;
+			$table_name = $request->get_param( 'table' );
+			$id_param   = $request->get_param( 'id' );
+			$data       = $request->get_json_params();
+
+			if ( empty( $data ) ) {
+				return ErrorSanitizer::rest_error( 'wp_heart_bad_request', __( 'No data provided.', 'wp-heart' ), 400 );
+			}
+
+			$assembler = new TableAssembler( $this->c );
+			$table     = $assembler->table( $table_name );
+			if ( ! $table ) {
+				return ErrorSanitizer::rest_error( 'wp_heart_not_found', __( 'Table not found.', 'wp-heart' ), 404 );
+			}
+
+			$pks = explode( ',', $id_param );
+			$indexes = $this->c->make( 'schema.indexes' )->inspect( $table->name() );
+			$pk      = null;
+			foreach ( $indexes as $idx ) {
+				if ( $idx['primary'] ) {
+					$pk = $idx['columns'];
+					break;
+				}
+			}
+
+			if ( ! $pk || count( $pk ) !== count( $pks ) ) {
+				return ErrorSanitizer::rest_error( 'wp_heart_bad_address', __( 'Table lacks a primary key or key length mismatch.', 'wp-heart' ), 400 );
+			}
+
+			$where = array();
+			foreach ( $pk as $i => $col ) {
+				$where[ $col ] = $pks[ $i ];
+			}
+
+			$updated = $wpdb->update(
+				$table->name(),
+				$data,
+				$where
+			);
+
+			if ( false === $updated ) {
+				return ErrorSanitizer::rest_error( 'wp_heart_update_failed', __( 'Database update failed.', 'wp-heart' ), 500 );
+			}
+
+			AuditLogger::log(
+				$this->c,
+				new AuditEvent(
+					AuditEvent::EV_DATA_MODIFIED,
+					sprintf( __( 'Updated row in %s', 'wp-heart' ), $table->name() ),
+					array( 'table' => $table->name(), 'keys' => $where, 'changes' => array_keys($data) )
+				)
+			);
+
+			return Presenter::ok( array( 'success' => true, 'updated' => $updated ) );
+		} catch ( \Exception $e ) {
+			return ErrorSanitizer::rest_error( 'wp_heart_error', $e->getMessage(), 500 );
+		}
 	}
 }

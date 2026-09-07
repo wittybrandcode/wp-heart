@@ -21,9 +21,11 @@ use WPHeart\Discovery\DatabaseService;
 use WPHeart\Discovery\TableDiscovery;
 use WPHeart\Intelligence\ConfidenceScorer;
 use WPHeart\Intelligence\CoreTableRecognizer;
+use WPHeart\Intelligence\EntityExporter;
 use WPHeart\Intelligence\OrphanDetector;
 use WPHeart\Intelligence\PluginRegistry;
 use WPHeart\Intelligence\PluginTableDetector;
+use WPHeart\Intelligence\Sweeper;
 use WPHeart\Intelligence\ThemeDetector;
 use WPHeart\Intelligence\WpContextService;
 use WPHeart\Intelligence\AIEngine;
@@ -143,6 +145,18 @@ class Plugin {
 			'intel.confidence',
 			static function () {
 				return new ConfidenceScorer();
+			}
+		);
+		$c->singleton(
+			'intel.sweeper',
+			static function ( $c ) {
+				return new Sweeper( $c );
+			}
+		);
+		$c->singleton(
+			'intel.exporter',
+			static function ( $c ) {
+				return new EntityExporter( $c );
 			}
 		);
 		$c->singleton(

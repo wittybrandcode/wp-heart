@@ -18,6 +18,7 @@ use WPHeart\Rest\Controllers\QueryController;
 use WPHeart\Rest\Controllers\SearchController;
 use WPHeart\Rest\Controllers\SettingsController;
 use WPHeart\Rest\Controllers\SnapshotsController;
+use WPHeart\Rest\Controllers\SweepController;
 use WPHeart\Rest\Controllers\TablesController;
 
 /**
@@ -53,6 +54,7 @@ class RestBootstrap {
 			new SettingsController( $this->c ),
 			new SnapshotsController( $this->c ),
 			new MapController( $this->c ),
+			new SweepController( $this->c ),
 		);
 		foreach ( $controllers as $controller ) {
 			$controller->register( $ns );

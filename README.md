@@ -27,6 +27,8 @@
 
 Every WordPress site accumulates database complexity over time — abandoned plugin tables, missing indexes, autoload bloat, orphaned data, schema drift. Traditional tools require direct DB access, risking accidental mutations. **WP-HEART changes that.**
 
+**💡 Are you a plugin developer?** Read the [Developer's Guide to Anticipating Bugs](WHY_WP_HEART.md) to see how WP-HEART can supercharge your development workflow.
+
 > *"Give developers the full power of database observability without ever giving them the power to break things."*
 
 ```

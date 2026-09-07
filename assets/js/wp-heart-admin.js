@@ -289,7 +289,7 @@
 		}).catch(function (e) { el.innerHTML = errorState(e.message); });
 	}
 	function renderStructTab(body, d) {
-		var h = '<h3>' + esc(__('Columns')) + ' (' + d.columns.length + ')</h3><div class="wh-scroll"><table class="widefat striped"><thead><tr><th scope="col">' + esc(__('Name')) + '</th><th scope="col">' + esc(__('Type')) + '</th><th scope="col">' + esc(__('Null')) + '</th><th scope="col">' + esc(__('Default')) + '</th><th scope="col">' + esc(__('Extra')) + '</th></tr></thead><tbody>'
+		var h = '<h3>' + esc(__('Columns')) + ' (' + d.columns.length + ') <button type="button" class="button button-small" id="wh-gen-model" style="float: right;"><span class="dashicons dashicons-editor-code"></span> ' + esc(__('Generate PHP Model')) + '</button></h3><div id="wh-model-container"></div><div class="wh-scroll"><table class="widefat striped"><thead><tr><th scope="col">' + esc(__('Name')) + '</th><th scope="col">' + esc(__('Type')) + '</th><th scope="col">' + esc(__('Null')) + '</th><th scope="col">' + esc(__('Default')) + '</th><th scope="col">' + esc(__('Extra')) + '</th></tr></thead><tbody>'
 			+ d.columns.map(function (c) {
 				return '<tr><td><code>' + esc(c.name) + '</code></td><td>' + esc(c.native_type || c.data_type || '—') + '</td><td>' + (c.nullable == null ? '—' : (c.nullable ? 'YES' : 'NO')) + '</td><td>' + esc(c.default == null ? '—' : c.default) + '</td><td>' + esc(c.extra || '—') + '</td></tr>';
 			}).join('') + '</tbody></table></div>';
@@ -297,9 +297,21 @@
 			return '<li><code>' + esc(i.name) + '</code>' + (i.primary ? ' ' + badge(__('PRIMARY'), 'primary') : '') + (i.unique ? ' ' + badge(__('UNIQUE'), 'unique') : '') + ' (' + i.columns.map(esc).join(', ') + ')</li>';
 		}).join('') : '<li>' + esc(__('No indexes reported.')) + '</li>') + '</ul>';
 		body.innerHTML = h;
+
+		body.querySelector('#wh-gen-model').addEventListener('click', function () {
+			var className = d.name.replace(/^[a-zA-Z0-9]+_/, '').replace(/(^\w|_\w)/g, function(m) { return m.replace('_', '').toUpperCase(); });
+			var code = "<?php\n\nclass " + className + "Model {\n";
+			d.columns.forEach(function(c) { code += "    public $" + c.name + ";\n"; });
+			code += "\n    public function __construct( $data = array() ) {\n";
+			d.columns.forEach(function(c) { code += "        $this->" + c.name + " = isset( $data['" + c.name + "'] ) ? $data['" + c.name + "'] : null;\n"; });
+			code += "    }\n}\n";
+			
+			var container = body.querySelector('#wh-model-container');
+			container.innerHTML = '<textarea rows="12" readonly style="width: 100%; font-family: monospace; margin-bottom: 15px;" onclick="this.select()">' + esc(code) + '</textarea>';
+		});
 	}
 	function renderRelsTab(body, d) {
-		var h = '<h3>' + esc(__('Relationships')) + '</h3>';
+		var h = '<h3>' + esc(__('Relationships')) + ' <button type="button" class="button button-small" id="wh-gen-fk" style="float: right;"><span class="dashicons dashicons-editor-code"></span> ' + esc(__('Generate FK SQL')) + '</button></h3><div id="wh-fk-container"></div>';
 		if (!d.relationships.length) h += emptyState(__('No relationships detected (NONE known).'));
 		h += '<ul class="wh-list">' + d.relationships.map(function (r) {
 			return '<li>' + badge(r.origin, 'rel-' + r.origin.toLowerCase()) + ' <code>' + esc(r.source_column) + '</code>'
@@ -308,6 +320,18 @@
 		}).join('') + '</ul><h3>' + esc(__('Constraints')) + '</h3><ul class="wh-list">'
 			+ (d.constraints.length ? d.constraints.map(function (c) { return '<li><code>' + esc(c.name) + '</code> ' + esc(c.type) + '</li>'; }).join('') : '<li>' + esc(__('None detected — absence of foreign keys is normal in WordPress.')) + '</li>') + '</ul>';
 		body.innerHTML = h;
+
+		body.querySelector('#wh-gen-fk').addEventListener('click', function () {
+			var code = "";
+			d.relationships.forEach(function(r) {
+				if (r.target_table) {
+					code += "ALTER TABLE `" + d.name + "`\n  ADD CONSTRAINT `fk_" + d.name + "_" + r.source_column + "`\n  FOREIGN KEY (`" + r.source_column + "`)\n  REFERENCES `" + r.target_table + "` (`" + r.target_column + "`)\n  ON DELETE CASCADE\n  ON UPDATE CASCADE;\n\n";
+				}
+			});
+			if (!code) code = "-- " + __('No relationships found to generate constraints for.');
+			var container = body.querySelector('#wh-fk-container');
+			container.innerHTML = '<textarea rows="6" readonly style="width: 100%; font-family: monospace; margin-bottom: 15px;" onclick="this.select()">' + esc(code) + '</textarea>';
+		});
 	}
 	function renderDataTab(body, d, params) {
 		body.innerHTML = loading();
@@ -328,7 +352,7 @@
 			h += '<div class="wh-scroll"><table class="widefat striped"><thead><tr>' + cols.map(function (c) { return '<th scope="col">' + esc(c) + '</th>'; }).join('') + (canInspect ? '<th scope="col"><span class="screen-reader-text">' + esc(__('Actions')) + '</span></th>' : '') + '</tr></thead><tbody>'
 				+ r2.data.map(function (row) {
 					var cells = cols.map(function (c) { return '<td>' + renderValue(row[c]) + '</td>'; }).join('');
-					if (canInspect) cells += '<td><button type="button" class="button button-small wh-rowbtn" data-id="' + esc(row[addr.columns[0]]) + '"><span class="dashicons dashicons-visibility"></span> ' + esc(__('View')) + '</button></td>';
+					if (canInspect) cells += '<td><button type="button" class="button button-small wh-rowbtn" data-id="' + esc(row[addr.columns[0]]) + '"><span class="dashicons dashicons-edit"></span> ' + esc(__('Edit')) + '</button></td>';
 					return '<tr>' + cells + '</tr>';
 				}).join('') + '</tbody></table></div>' + pager(r2.meta.pagination, 'tables/' + d.name + '?tab=rows' + (params.s ? '&s=' + encodeURIComponent(params.s) : ''));
 			if (addr.mode === 'composite') h += '<p class="wh-result-meta">' + esc(__('Composite primary key — rows list safely but cannot be deep-linked individually.')) + '</p>';
@@ -377,11 +401,62 @@
 		wrap.firstChild.addEventListener('click', function (e) { if (e.target.className === 'wh-modal-backdrop') close(); });
 		api('tables/' + encodeURIComponent(table) + '/rows/' + encodeURIComponent(id)).then(function (res) {
 			var row = res.data.row, cols = Object.keys(row);
-			var h = '<h2 id="wh-rowtitle">' + esc(table) + ' <span class="wh-mode">(' + esc(pkCol) + ' = ' + esc(id) + ')</span></h2><dl>'
-				+ cols.map(function (c) { return '<dt><code>' + esc(c) + '</code></dt><dd>' + renderValue(row[c]) + '</dd>'; }).join('')
-				+ '</dl><p><button type="button" class="button" id="wh-modalclose"><span class="dashicons dashicons-no"></span> ' + esc(__('Close')) + '</button></p>';
+			var h = '<h2 id="wh-rowtitle">' + esc(table) + ' <span class="wh-mode">(' + esc(pkCol) + ' = ' + esc(id) + ')</span></h2>'
+				+ '<form id="wh-rowedit-form" class="wh-edit-form">';
+			cols.forEach(function (c) {
+				var val = row[c] === null ? '' : String(row[c]);
+				h += '<label><strong><code>' + esc(c) + '</code></strong><br><textarea name="' + esc(c) + '" rows="2" style="width:100%; font-family:monospace;">' + esc(val) + '</textarea></label><br>';
+			});
+			h += '<p><button type="submit" class="button button-primary"><span class="dashicons dashicons-saved"></span> ' + esc(__('Save Changes')) + '</button> '
+				+ '<button type="button" class="button" id="wh-modalexport"><span class="dashicons dashicons-download"></span> ' + esc(__('Export Entity JSON')) + '</button> '
+				+ '<button type="button" class="button" id="wh-modalclose"><span class="dashicons dashicons-no"></span> ' + esc(__('Close')) + '</button></p></form>';
 			modal.innerHTML = h;
+
 			modal.querySelector('#wh-modalclose').addEventListener('click', close);
+			modal.querySelector('#wh-modalexport').addEventListener('click', function () {
+				var btn = this;
+				btn.disabled = true;
+				btn.innerHTML = '<span class="dashicons dashicons-update"></span> ' + esc(__('Exporting...'));
+				api('tables/' + encodeURIComponent(table) + '/rows/' + encodeURIComponent(id) + '/export').then(function(r) {
+					btn.disabled = false;
+					btn.innerHTML = '<span class="dashicons dashicons-download"></span> ' + esc(__('Export Entity JSON'));
+					var blob = new Blob([JSON.stringify(r.data, null, 2)], { type: 'application/json' });
+					var a = document.createElement('a');
+					a.href = URL.createObjectURL(blob);
+					a.download = table + '-entity-' + id + '.json';
+					a.click();
+				}).catch(function(err) {
+					alert(err.message);
+					btn.disabled = false;
+					btn.innerHTML = '<span class="dashicons dashicons-download"></span> ' + esc(__('Export Entity JSON'));
+				});
+			});
+			var form = modal.querySelector('#wh-rowedit-form');
+			form.addEventListener('submit', function (ev) {
+				ev.preventDefault();
+				if (!window.confirm(__('Save changes to the database?'))) return;
+				
+				var data = {};
+				cols.forEach(function (c) { data[c] = form.elements[c].value; });
+				
+				var submitBtn = form.querySelector('button[type="submit"]');
+				submitBtn.disabled = true;
+				submitBtn.innerHTML = '<span class="dashicons dashicons-update"></span> ' + esc(__('Saving...'));
+
+				api('tables/' + encodeURIComponent(table) + '/rows/' + encodeURIComponent(id), {
+					method: 'PUT',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify(data)
+				}).then(function (r) {
+					alert(__('Row updated successfully!'));
+					close();
+					viewTableDetail(document.getElementById('wh-view'), table, parseHash().params); // Reload table
+				}).catch(function (err) {
+					alert(err.message);
+					submitBtn.disabled = false;
+					submitBtn.innerHTML = '<span class="dashicons dashicons-saved"></span> ' + esc(__('Save Changes'));
+				});
+			});
 			modal.querySelector('#wh-modalclose').focus();
 		}).catch(function (e) { modal.innerHTML = errorState(e.message) + '<p><button type="button" class="button" id="wh-modalclose"><span class="dashicons dashicons-no"></span> ' + esc(__('Close')) + '</button></p>'; modal.querySelector('#wh-modalclose').addEventListener('click', close); });
 	}
@@ -425,7 +500,11 @@
 			var items = res.data.filter(function (i) { return !sev || i.severity === sev; });
 			if (!items.length) { body.innerHTML = h + (sev ? emptyState(__('No issues at this severity.')) : '<div class="wh-state wh-ok" role="status">' + esc(__('No issues detected by the registered diagnostics.')) + '</div>'); bindHealth(body); return; }
 			body.innerHTML = h + items.map(function (i) {
-				return '<article class="wh-issue sev-' + esc(i.severity) + '"><h3>' + sevBadge(i.severity) + ' ' + esc(i.id) + '</h3>'
+				var actionHtml = '';
+				if (i.id === 'wpheart_expired_transients') {
+					actionHtml = ' <button type="button" class="button button-small wh-btn-sweep" data-target="transients" style="float: right;"><span class="dashicons dashicons-trash"></span> ' + esc(__('Clean')) + '</button>';
+				}
+				return '<article class="wh-issue sev-' + esc(i.severity) + '"><h3 style="display: flow-root;">' + sevBadge(i.severity) + ' ' + esc(i.id) + actionHtml + '</h3>'
 					+ '<p>' + esc(i.explanation) + '</p>'
 					+ '<p><strong>' + esc(__('Affected:')) + '</strong> ' + i.affected.map(function (a) {
 						if (a.indexOf('option:') === 0) return '<code>' + esc(a.slice(7)) + '</code>';
@@ -439,13 +518,30 @@
 	function bindHealth(body) {
 		var f = body.querySelector('#wh-hfilter');
 		if (f) f.addEventListener('submit', function (ev) { ev.preventDefault(); location.hash = '#health' + (f.s.value ? '?sev=' + f.s.value : ''); });
+
+		body.querySelectorAll('.wh-btn-sweep').forEach(function(btn) {
+			btn.addEventListener('click', function() {
+				if (!window.confirm(__('Are you sure you want to clean these records?'))) return;
+				btn.disabled = true;
+				var originalText = btn.innerHTML;
+				btn.innerHTML = '<span class="dashicons dashicons-update"></span> ' + esc(__('Cleaning...'));
+				api('sweep/' + encodeURIComponent(btn.getAttribute('data-target')), { method: 'DELETE' }).then(function(res) {
+					alert(res.data.message);
+					viewHealth(document.getElementById('wh-view'), parseHash().params);
+				}).catch(function(e) {
+					alert(e.message);
+					btn.disabled = false;
+					btn.innerHTML = originalText;
+				});
+			});
+		});
 	}
 
 	/* ---------- query console ---------- */
 	function viewQuery(el) {
 		el.innerHTML = '<div class="wh-notice" role="note">' + esc(__('Read-only console. Only SELECT, SHOW, DESCRIBE and EXPLAIN run — the server rejects everything else.')) + '</div>'
 			+ '<form id="wh-qform"><label for="wh-sql">SQL</label><textarea id="wh-sql" rows="6" spellcheck="false" placeholder="SELECT * FROM …">SELECT 1</textarea>'
-			+ '<p><button class="button button-primary" type="submit"><span class="dashicons dashicons-controls-play"></span> ' + esc(__('Run')) + '</button> <button class="button" type="button" id="wh-explain"><span class="dashicons dashicons-visibility"></span> ' + esc(__('Explain')) + '</button></p></form><div id="wh-qres"></div><div class="wh-history" id="wh-qhist"></div>';
+			+ '<p><button class="button button-primary" type="submit"><span class="dashicons dashicons-controls-play"></span> ' + esc(__('Run')) + '</button> <button class="button" type="button" id="wh-explain"><span class="dashicons dashicons-visibility"></span> ' + esc(__('Explain')) + '</button> <button class="button" type="button" id="wh-gen-php"><span class="dashicons dashicons-editor-code"></span> ' + esc(__('Generate PHP')) + '</button></p></form><div id="wh-qres"></div><div class="wh-history" id="wh-qhist"></div>';
 		focusHeading(el);
 		var res = el.querySelector('#wh-qres');
 		function history() {
@@ -485,9 +581,16 @@
 						: emptyState(__('No rows returned.')));
 			}).catch(function (e) { res.innerHTML = errorState(e.message); });
 		}
+		function generateQueryPhp() {
+			var sql = el.querySelector('#wh-sql').value.trim();
+			if (!sql) return;
+			var code = "global $wpdb;\n\n// Run the query\n$results = $wpdb->get_results(\n    \"" + sql.replace(/"/g, '\\"').replace(/\n/g, "\n    ") + "\"\n);\n\nif ( ! empty( $results ) ) {\n    foreach ( $results as $row ) {\n        // Process $row\n    }\n}";
+			res.innerHTML = '<h3>' + esc(__('Generated PHP Code')) + '</h3><textarea rows="10" readonly style="width: 100%; font-family: monospace;" onclick="this.select()">' + esc(code) + '</textarea>';
+		}
+		renderHistory();
 		el.querySelector('#wh-qform').addEventListener('submit', function (ev) { ev.preventDefault(); run(false); });
 		el.querySelector('#wh-explain').addEventListener('click', function () { run(true); });
-		renderHistory();
+		el.querySelector('#wh-gen-php').addEventListener('click', function () { generateQueryPhp(); });
 	}
 
 	/* ---------- map ---------- */
